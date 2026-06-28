@@ -28,11 +28,13 @@ jobs:
           node-version: 20
 
       - name: Install Dependencies
-        run: npm install
+  run: npm ci
 
-      - name: Build Project
-        run: npm run build
+- name: Give execute permission
+  run: chmod +x ./node_modules/.bin/vite
 
+- name: Build Project
+  run: npm run build
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
